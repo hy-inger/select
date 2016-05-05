@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style type="text/css">
+        * {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        ul {
+          list-style: none;
+        }
+        .hide {
+          display: none;
+        }
+        .show {
+          display: block !important;
+        }
+
+        
+        .select_container{
+            position: relative;
+        }
+        .select{
+            width: auto ;
+            display: inline-block;
+            position: relative;
+        }
+        .input {
+          height: 50px;
+          width: 440px;
+          background-color: #f7f7f7;
+          font-size: 18px;
+          color: #bbb;
+          padding: 15px 15px;
+          outline: none;
+          border:1px solid #ccc;
+        }
+        .select_container #dropdown {
+          position: absolute;
+          right: 0px;
+          cursor: pointer;
+        }
+        .select_container #dropdown .triangle {
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+          border-top: 6px solid;
+          border-top-color: #000;
+          opacity: 0.5;
+          position: absolute;
+          top: 50%;
+          margin-top: -3px;
+          left: 50%;
+          margin-left: -3px;
+          z-index: 333;
+        }
+        .hide_input {
+          top: 0;
+          position: absolute;
+          visibility: hidden;
+        }
+        #list {
+          position: absolute;
+          background-color: #f7f7f7;
+          z-index: 222;
+          padding: 0 21px 0 0;
+          border: 1px solid #e2e2e2;
+          /* 自定义的slideDown和slideUp功能要求:外层div高度自适应，隐藏溢出部分。 */
+          display: none;
+          height: auto;
+          overflow: hidden;
+        }
+        #list .ul {
+            padding-left: 0;
+            margin:0;
+            height: auto;
+            max-height: 200px;
+            overflow: auto;
+        }
+        #list .li {
+          padding-left: 20px;
+          color: #bbb;
+          font-size: 18px;
+          height: 50px;
+          border-bottom: 1px solid #e2e2e2;
+          line-height: 50px;
+          cursor: pointer;
+        }
+        #list .li.selected {
+          background-color: #DCDADA;
+        }
+        #list .li.active, #list .li:hover {
+          background-color: #e4e4e4;
+        }
+    </style>
+    <body>
+        <div class="select_container">
+            <div class="select">
+                <div id="dropdown"><i class="triangle"></i></div>
+                <input class="input" id="show_input" type="text" value="" placeholder="Choose data" onpaste="return false;" autocomplete="off"/>
+                <input class="hide_input" id="real_input" type="text"/>
+            </div>
+            <div id="list">
+                <ul class="ul">
+                    <li class="li">Andorra</li>
+                    <li class="li">United Arab Emirates</li>
+                    <li class="li">Afghanistan</li>
+                    <li class="li">Antigua and Barbuda</li>
+                    <li class="li">Anguilla</li>
+                    <li class="li">Albania</li>
+                    <li class="li">Armenia</li>
+                    <li class="li">Angola</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="basic.js"></script>
+    <script type="text/javascript" src="select.js"></script>
+    <script type="text/javascript">
+        module.select({
+            dropdown:'dropdown',        // 下拉按钮，非必须
+            list : 'list',                  // 下拉列表，必须
+            show_input : 'show_input',            //显式输入框，用于搜索、输入、和显示。必须
+            real_input : 'real_input',            // 隐式输入框，最终选中数据，必须
+        });
+    </script>
+</html>
