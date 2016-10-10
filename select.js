@@ -44,7 +44,7 @@ window.Select = (function(){
             });
 
             // 使用事件委托选择数据，将数据填入输入框，收起列表。
-            module.addEvent(this.list_ul,'click',this.delegateSelect,true);
+            module.addEvent(this.list_ul,'click',this.delegateSelect);
 
             // mouseover事件
             module.addEvent(this.list_ul,'mouseover',function(e){
@@ -114,7 +114,7 @@ window.Select = (function(){
                 module.removeClass(self.list_ul.querySelector('.active'),'active');
             });
         },
-        showList: function(event){                  // 
+        showList: function(event){                  
             if(!module.hasClass(self.list_div,'show')){
                 self.openSelect();
             } else {
@@ -122,6 +122,7 @@ window.Select = (function(){
             }
         },
         delegateSelect : function(e){               // 选中数据的事件委托
+            console.log('event');
             if(module.hasClass(e.target,'li')){
                 e.stopPropagation();
                 self.selectItem(e.target ? e.target: e.srcElement);

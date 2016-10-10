@@ -99,6 +99,12 @@ var module = (function(mod){
         }
         return keycode;
     };
+    /* 获取屏幕宽高 */
+    /*mod.getWindow = function(){
+       return {
+            width:window.innerHeight;
+       }
+    }*/
     /* 阻止form验证默认气泡,html5 */
     mod.preventTips = function(form){
         this.addEvent(form,'invalid',function(event){
@@ -410,7 +416,7 @@ var module = (function(mod){
             });
 
             // 使用事件委托选择数据，将数据填入输入框，收起列表。
-            module.addEvent(this.list_ul,'click',this.delegateSelect,true);
+            module.addEvent(this.list_ul,'click',this.delegateSelect);
 
             // mouseover事件
             module.addEvent(this.list_ul,'mouseover',function(e){
